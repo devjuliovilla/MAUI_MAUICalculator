@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUICalculator.MVVM.Views.CalculatorView"
+             Title="CalculatorView">
+
+    <Grid RowDefinitions=".4*,.6*">
+        <VerticalStackLayout
+            Grid.Row="0">
+            <Label StyleClass="LabelText,LabelOperations"
+                Text="{Binding Formula}" />
+            <Label StyleClass="LabelText,LabelResults"
+                Text="{Binding Result}" />
+        </VerticalStackLayout>
+        <Grid Grid.Row="1">
+            <BoxView />
+            <Grid 
+                    Padding="15"
+                    ColumnDefinitions="*,*,*,*"
+                    ColumnSpacing="15"
+                    RowDefinitions="*,*,*,*,*"
+                    RowSpacing="15">
+                <!--#region Row 1-->
+                <Button Grid.Column="0"
+                        Grid.Row="0"
+                        Style="{StaticResource YellowButton}"
+                        Command="{Binding ResetCommand}"
+                        Text="AC" />
+                <Button Grid.Column="1"
+                        Grid.Row="0"
+                        SemanticProperties.Description="Backspace"
+                        Style="{StaticResource YellowButton}"
+                        Command="{Binding BackspaceCommand}"
+                    Text="⌫"  />
+                <Button Grid.Column="2"
+                        Grid.Row="0"
+                        Style="{StaticResource YellowButton}"
+                        Command="{Binding OperationCommand}"
+                        CommandParameter=" % "
+                    Text="%"  />
+                <Button Grid.Column="3"
+                        Grid.Row="0"
+                        Style="{StaticResource RedButton}"
+                        Command="{Binding OperationCommand}"
+                        CommandParameter=" / "
+                    Text="/"  />
+                <!--#endregion-->
+                <!--#region Row 2-->
+                <Button Grid.Column="0"
+                        Grid.Row="1"
+                        Command="{Binding OperationCommand}"
+                        CommandParameter="7"
+                        Text="7" />
+                <Button Grid.Column="1"
+                        Grid.Row="1"
+                        Command="{Binding OperationCommand}"
+                        CommandParameter="8"
+                    Text="8"  />
+                <Button Grid.Column="2"
+                        Grid.Row="1"
+                        Command="{Binding OperationCommand}"
+                        CommandParameter="9"
+                    Text="9"  />
+                <Button Grid.Column="3"
+                        Grid.Row="1"
+                        Style="{StaticResource RedButton}"
+                        Command="{Binding OperationCommand}"
+                        CommandParameter=" * "
+                    Text="*"  />
+                <!--#endregion-->
+                <!--#region Row 3-->
+                <Button Grid.Column="0"
+                        Grid.Row="2"
+                        Command="{Binding OperationCommand}"
+                        CommandParameter="4"
+                        Text="4" />
+                <Button Grid.Column="1"
+                        Grid.Row="2"
+                        Command="{Binding OperationCommand}"
+                        CommandParameter="5"
+                    Text="5"  />
+                <Button Grid.Column="2"
+                        Grid.Row="2"
+                        Command="{Binding OperationCommand}"
+                        CommandParameter="6"
+                    Text="6"  />
+                <Button Grid.Column="3"
+                        Grid.Row="2"
+                        Style="{StaticResource RedButton}"
+                        Command="{Binding OperationCommand}"
+                        CommandParameter=" - "
+                    Text="-"  />
+                <!--#endregion-->
+                <!--#region Row 4-->
+                <Button Grid.Column="0"
+                        Grid.Row="3"
+                        Command="{Binding OperationCommand}"
+                        CommandParameter="1"
+                        Text="1" />
+                <Button Grid.Column="1"
+                        Grid.Row="3"
+                        Command="{Binding OperationCommand}"
+                        CommandParameter="2"
+                    Text="2"  />
+                <Button Grid.Column="2"
+                        Grid.Row="3"
+                        Command="{Binding OperationCommand}"
+                        CommandParameter="3"
+                    Text="3"  />
+                <Button Grid.Column="3"
+                        Grid.Row="3"
+                        Style="{StaticResource RedButton}"
+                        Command="{Binding OperationCommand}"
+                        CommandParameter=" + "
+                    Text="+"  />
+                <!--#endregion-->
+                <!--#region Row 5-->
+                <Button Grid.Column="0"
+                        Grid.Row="4"
+                        Grid.ColumnSpan="2"
+                        Command="{Binding OperationCommand}"
+                        CommandParameter="0"
+                        Text="0" />
+                <Button Grid.Column="2"
+                        Grid.Row="4"
+                        Command="{Binding OperationCommand}"
+                        CommandParameter="."
+                    Text="."  />
+                <Button Grid.Column="3"
+                        Grid.Row="4"
+                        Style="{StaticResource RedButton}"
+                        Command="{Binding CalculateCommand}"
+                    Text="="  />
+                <!--#endregion-->
+            </Grid>
+        </Grid>
+    </Grid>
+</ContentPage>
